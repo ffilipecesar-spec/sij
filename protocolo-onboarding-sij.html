@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protocolo de Onboarding · Comunidade Super Inteligência Jurídica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0b;
+  --bg-elev:#121215;
+  --bg-elev-2:#1a1a1f;
+  --ink:#f5f3ee;
+  --ink-mute:#a8a39a;
+  --ink-faint:#5e5a52;
+  --line:rgba(245,243,238,0.08);
+  --line-strong:rgba(245,243,238,0.16);
+  --gold:#c9a86a;
+  --gold-soft:rgba(201,168,106,0.12);
+  --gold-line:rgba(201,168,106,0.28);
+  --accent-a:#d4b378;
+  --accent-b:#8b7355;
+  --danger:#c9846a;
+  --success:#8ba76a;
+  --display:'Fraunces',serif;
+  --sans:'Inter Tight',-apple-system,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-weight:400;
+  line-height:1.6;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  background-image:
+    radial-gradient(ellipse 800px 600px at 15% -10%,rgba(201,168,106,0.06),transparent 60%),
+    radial-gradient(ellipse 600px 400px at 95% 20%,rgba(201,168,106,0.04),transparent 60%);
+  background-attachment:fixed;
+}
+.wrap{max-width:980px;margin:0 auto;padding:0 32px}
+header.masthead{
+  padding:80px 0 60px;
+  border-bottom:1px solid var(--line);
+  position:relative;
+}
+.eyebrow{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:24px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.eyebrow::before{
+  content:'';
+  width:24px;
+  height:1px;
+  background:var(--gold);
+}
+h1.title{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(40px,6vw,72px);
+  line-height:0.98;
+  letter-spacing:-0.025em;
+  color:var(--ink);
+  margin-bottom:24px;
+}
+h1.title em{
+  font-style:italic;
+  color:var(--gold);
+  font-weight:300;
+}
+.subtitle{
+  font-size:18px;
+  color:var(--ink-mute);
+  max-width:640px;
+  line-height:1.55;
+}
+.callout-warn{
+  margin-top:40px;
+  padding:20px 24px;
+  border:1px solid var(--gold-line);
+  background:var(--gold-soft);
+  border-left:3px solid var(--gold);
+  border-radius:2px;
+  font-size:15px;
+  color:var(--ink);
+}
+.callout-warn strong{color:var(--gold);font-weight:600}
+
+/* Index */
+nav.index{
+  padding:48px 0;
+  border-bottom:1px solid var(--line);
+}
+.index-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.index-grid a{
+  display:block;
+  padding:20px 24px;
+  background:var(--bg);
+  color:var(--ink);
+  text-decoration:none;
+  transition:all 0.2s ease;
+}
+.index-grid a:hover{
+  background:var(--bg-elev);
+  color:var(--gold);
+}
+.index-num{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--gold);
+  letter-spacing:0.1em;
+  display:block;
+  margin-bottom:6px;
+}
+.index-name{
+  font-family:var(--display);
+  font-size:18px;
+  font-weight:400;
+}
+
+/* Sections */
+section.block{
+  padding:80px 0;
+  border-bottom:1px solid var(--line);
+}
+.section-tag{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:20px;
+}
+h2.section-title{
+  font-family:var(--display);
+  font-weight:400;
+  font-size:clamp(32px,4vw,48px);
+  line-height:1.05;
+  letter-spacing:-0.02em;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+h2.section-title em{font-style:italic;color:var(--gold);font-weight:300}
+.section-lede{
+  font-size:17px;
+  color:var(--ink-mute);
+  margin-bottom:40px;
+  max-width:680px;
+  line-height:1.55;
+}
+h3.sub{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:24px;
+  letter-spacing:-0.01em;
+  color:var(--ink);
+  margin:48px 0 16px;
+}
+h4.sub-2{
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:14px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:32px 0 12px;
+}
+p{margin-bottom:16px;color:var(--ink)}
+.muted{color:var(--ink-mute)}
+strong{font-weight:600;color:var(--ink)}
+ul,ol{margin:16px 0 24px;padding-left:24px}
+li{margin-bottom:8px;color:var(--ink)}
+li::marker{color:var(--gold)}
+
+/* Quote */
+blockquote.script{
+  margin:24px 0;
+  padding:24px 28px;
+  border-left:2px solid var(--gold);
+  background:linear-gradient(90deg,var(--gold-soft) 0%,transparent 100%);
+  font-family:var(--display);
+  font-size:18px;
+  font-style:italic;
+  font-weight:400;
+  line-height:1.5;
+  color:var(--ink);
+  border-radius:0 2px 2px 0;
+}
+blockquote.script::before{
+  content:'"';
+  font-family:var(--display);
+  font-size:48px;
+  color:var(--gold);
+  line-height:0;
+  vertical-align:-12px;
+  margin-right:8px;
+}
+
+/* Tables */
+.table-wrap{
+  overflow-x:auto;
+  margin:24px 0 32px;
+  border:1px solid var(--line);
+  border-radius:2px;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
+}
+th{
+  background:var(--bg-elev);
+  text-align:left;
+  padding:14px 18px;
+  font-family:var(--sans);
+  font-weight:600;
+  font-size:12px;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+  color:var(--gold);
+  border-bottom:1px solid var(--gold-line);
+}
+td{
+  padding:14px 18px;
+  border-bottom:1px solid var(--line);
+  color:var(--ink);
+  vertical-align:top;
+}
+td strong{color:var(--gold);font-weight:600}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--bg-elev)}
+
+/* Phase cards */
+.phases{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  margin:24px 0 32px;
+}
+.phase{
+  background:var(--bg);
+  padding:24px;
+}
+.phase-label{
+  font-family:var(--mono);
+  font-size:11px;
+  color:var(--gold);
+  letter-spacing:0.1em;
+  margin-bottom:8px;
+}
+.phase-name{
+  font-family:var(--display);
+  font-size:22px;
+  color:var(--ink);
+  margin-bottom:12px;
+  letter-spacing:-0.01em;
+}
+.phase-desc{
+  font-size:14px;
+  color:var(--ink-mute);
+  line-height:1.5;
+}
+
+/* Step list */
+.steps{
+  counter-reset:step;
+  list-style:none;
+  padding:0;
+  margin:24px 0;
+}
+.steps > li{
+  counter-increment:step;
+  position:relative;
+  padding:20px 0 20px 64px;
+  border-bottom:1px solid var(--line);
+}
+.steps > li:last-child{border-bottom:none}
+.steps > li::before{
+  content:counter(step,decimal-leading-zero);
+  position:absolute;
+  left:0;
+  top:18px;
+  font-family:var(--mono);
+  font-size:12px;
+  font-weight:500;
+  color:var(--gold);
+  background:var(--gold-soft);
+  border:1px solid var(--gold-line);
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+}
+.steps h4{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:18px;
+  color:var(--ink);
+  margin-bottom:8px;
+}
+
+/* Checklist */
+.checklist{
+  background:var(--bg-elev);
+  border:1px solid var(--line);
+  border-radius:2px;
+  padding:28px 32px;
+  margin:24px 0;
+}
+.checklist h4{
+  font-family:var(--display);
+  font-weight:500;
+  font-size:20px;
+  color:var(--gold);
+  margin-bottom:16px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--gold-line);
+}
+.checklist ul{list-style:none;padding:0;margin:0}
+.checklist li{
+  padding:8px 0 8px 32px;
+  position:relative;
+  font-size:15px;
+  color:var(--ink);
+  border-bottom:1px dashed var(--line);
+}
+.checklist li:last-child{border-bottom:none}
+.checklist li::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:11px;
+  width:16px;
+  height:16px;
+  border:1.5px solid var(--gold-line);
+  border-radius:2px;
+  background:transparent;
+}
+
+/* Code block / registry */
+.registry{
+  font-family:var(--mono);
+  font-size:13px;
+  background:var(--bg-elev);
+  border:1px solid var(--line);
+  border-left:3px solid var(--gold);
+  padding:28px 32px;
+  margin:24px 0;
+  white-space:pre;
+  overflow-x:auto;
+  color:var(--ink);
+  line-height:1.7;
+  border-radius:2px;
+}
+
+/* Decision map */
+.decision-map{
+  background:var(--bg-elev);
+  border:1px solid var(--line);
+  padding:32px;
+  margin:24px 0;
+  border-radius:2px;
+}
+.decision-row{
+  padding:20px 0;
+  border-bottom:1px solid var(--line);
+}
+.decision-row:last-child{border-bottom:none}
+.decision-if{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:0.12em;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:8px;
+}
+.decision-then{
+  font-family:var(--display);
+  font-size:17px;
+  color:var(--ink);
+  line-height:1.5;
+}
+.decision-add{
+  font-size:14px;
+  color:var(--ink-mute);
+  margin-top:8px;
+  font-style:italic;
+}
+
+/* Footer */
+footer.foot{
+  padding:48px 0 80px;
+  text-align:center;
+}
+.foot-mark{
+  font-family:var(--display);
+  font-style:italic;
+  font-size:16px;
+  color:var(--ink-faint);
+}
+.foot-meta{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--ink-faint);
+  margin-top:8px;
+}
+
+/* Mobile */
+@media (max-width:640px){
+  .wrap{padding:0 20px}
+  header.masthead{padding:48px 0 40px}
+  section.block{padding:56px 0}
+  .steps > li{padding-left:52px}
+  .registry{font-size:11px;padding:20px}
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="wrap">
+    <div class="eyebrow">Protocolo Operacional · v1.0</div>
+    <h1 class="title">Onboarding<br><em>Comunidade SIJ</em></h1>
+    <p class="subtitle">Documento operacional para conduzir a primeira sessão com qualquer mentorado(a) da Comunidade Super Inteligência Jurídica.</p>
+    <div class="callout-warn">
+      <strong>Como ler isto.</strong> Este não é um roteiro para preencher antes da call. É o protocolo que o onboarder executa <strong>ao vivo</strong>, descobrindo o perfil do mentorado nos primeiros minutos e adaptando a sessão a partir daí.
+    </div>
+  </div>
+</header>
+
+<nav class="index">
+  <div class="wrap">
+    <div class="index-grid">
+      <a href="#s1"><span class="index-num">01</span><span class="index-name">Matriz de Diagnóstico</span></a>
+      <a href="#s2"><span class="index-num">02</span><span class="index-name">Acesso à Comunidade</span></a>
+      <a href="#s3"><span class="index-num">03</span><span class="index-name">Plano Geral</span></a>
+      <a href="#s4"><span class="index-num">04</span><span class="index-name">Trilha Inicial</span></a>
+      <a href="#s5"><span class="index-num">05</span><span class="index-name">Acervo de GPTs</span></a>
+      <a href="#s6"><span class="index-num">06</span><span class="index-name">Notebook LM</span></a>
+      <a href="#s7"><span class="index-num">07</span><span class="index-name">Calendário de Lucro</span></a>
+      <a href="#s8"><span class="index-num">08</span><span class="index-name">Amarração Final</span></a>
+      <a href="#s9"><span class="index-num">09</span><span class="index-name">Checklist do Onboarder</span></a>
+      <a href="#s10"><span class="index-num">10</span><span class="index-name">Registro Pós-Call</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- SEÇÃO 1 -->
+<section class="block" id="s1">
+  <div class="wrap">
+    <div class="section-tag">Seção 01 · Pré-call e abertura</div>
+    <h2 class="section-title">Matriz de <em>Diagnóstico</em> Inicial</h2>
+    <p class="section-lede">Nos primeiros 10 a 15 minutos da call, descubra em qual perfil o mentorado se encaixa para calibrar o resto da sessão.</p>
+
+    <h3 class="sub">1.1 · Perguntas-chave</h3>
+    <p>Faça em ordem, sem ler como questionário. Conduza como conversa.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:48px">#</th><th>Pergunta</th><th style="width:240px">O que você descobre</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>"Me conta rapidamente seu momento atual: você está começando, retomando, ou já tem escritório rodando?"</td><td><strong>Fase de carreira</strong></td></tr>
+          <tr><td>2</td><td>"Qual sua maior dor hoje — falta de cliente, escritório desorganizado, ou já tem cliente mas falta estrutura?"</td><td><strong>Dor primária</strong></td></tr>
+          <tr><td>3</td><td>"Você já usa IA no seu dia a dia? Se sim, como?"</td><td><strong>Maturidade em IA</strong></td></tr>
+          <tr><td>4</td><td>"Você já faz algum tipo de prospecção digital hoje (Instagram, anúncios, conteúdo)?"</td><td><strong>Maturidade em digital</strong></td></tr>
+          <tr><td>5</td><td>"Em quanto tempo você precisa ver os primeiros resultados financeiros?"</td><td><strong>Urgência de caixa</strong></td></tr>
+          <tr><td>6</td><td>"Qual seu nicho ou área de atuação principal?"</td><td><strong>Especialização</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub">1.2 · Classificação por fase</h3>
+    <div class="phases">
+      <div class="phase">
+        <div class="phase-label">Fase A</div>
+        <div class="phase-name">Organizar a Casa</div>
+        <div class="phase-desc">Já tem clientes, mas escritório desorganizado, sobrecarregado, sem processo.</div>
+      </div>
+      <div class="phase">
+        <div class="phase-label">Fase B</div>
+        <div class="phase-name">Retomada</div>
+        <div class="phase-desc">Tem experiência, mas está voltando ao mercado ou recomeçando.</div>
+      </div>
+      <div class="phase">
+        <div class="phase-label">Fase C</div>
+        <div class="phase-name">Prospecção Urgente</div>
+        <div class="phase-desc">Pouco cliente, caixa apertado, precisa faturar nos próximos 30–60 dias.</div>
+      </div>
+      <div class="phase">
+        <div class="phase-label">Fase D</div>
+        <div class="phase-name">Escala</div>
+        <div class="phase-desc">Já fatura bem, quer máquina de aquisição previsível e escalar com IA.</div>
+      </div>
+    </div>
+
+    <div class="callout-warn">
+      <strong>Regra de ouro.</strong> A ordem das seções da sessão é a mesma para todos. O que muda é onde você gasta mais tempo e o tipo de compromisso final que combina com o mentorado.
+    </div>
+
+    <h3 class="sub">1.3 · Tabela de calibragem por fase</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Bloco</th><th>Fase A</th><th>Fase B</th><th>Fase C</th><th>Fase D</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Acesso</strong></td><td>Padrão</td><td>Padrão</td><td>Padrão</td><td>Padrão</td></tr>
+          <tr><td><strong>Plano geral</strong></td><td>Organização → prospecção</td><td>Organização + autoridade</td><td>Caixa rápido c/ Calendário</td><td>Estrutura + escala em paralelo</td></tr>
+          <tr><td><strong>Acervo de GPTs</strong></td><td>Foco máximo</td><td>Foco máximo</td><td>Foco médio</td><td>Foco médio</td></tr>
+          <tr><td><strong>Notebook LM</strong></td><td>Foco médio</td><td>Foco médio</td><td>Foco baixo</td><td>Foco máximo</td></tr>
+          <tr><td><strong>Calendário</strong></td><td>Pontual (sazonal)</td><td>Pontual (sazonal)</td><td>Foco máximo</td><td>Foco médio</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 2 -->
+<section class="block" id="s2">
+  <div class="wrap">
+    <div class="section-tag">Seção 02 · Bloco fixo · 10 min</div>
+    <h2 class="section-title">Acesso à <em>Comunidade</em></h2>
+    <p class="section-lede">Sempre execute, sem exceção. Esse bloco é igual para todos os mentorados.</p>
+
+    <h3 class="sub">2.1 · Login pelo desktop</h3>
+    <p>Conduza passo a passo, com o mentorado <strong>compartilhando tela se possível</strong>:</p>
+    <ol>
+      <li>Pedir para o mentorado estar em um computador (não no celular).</li>
+      <li>Abrir navegador — Chrome ou Edge de preferência.</li>
+      <li>Acessar: <strong>comunidade.superinteligencia.org</strong></li>
+      <li>Clicar em <strong>"Entrar"</strong>.</li>
+      <li>Confirmar e-mail cadastrado e senha.</li>
+      <li>Se não lembrar da senha: clicar em "Esqueci minha senha" e acompanhar o fluxo.</li>
+      <li>Só siga adiante quando o mentorado conseguir entrar e ver o painel inicial.</li>
+    </ol>
+    <p class="muted">Confirme se o mentorado se sente seguro para repetir o login sozinho. Se não, repita o processo.</p>
+
+    <h3 class="sub">2.2 · Aplicativo (desktop ou mobile)</h3>
+    <ul>
+      <li>Perguntar se já está com o app instalado.</li>
+      <li>Se não: orientar onde baixar e acompanhar o primeiro login.</li>
+      <li>Reforçar que o app é o canal principal para trilhas, conteúdos e avisos.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SEÇÃO 3 -->
+<section class="block" id="s3">
+  <div class="wrap">
+    <div class="section-tag">Seção 03 · 5–10 min</div>
+    <h2 class="section-title">Plano <em>Geral</em></h2>
+    <p class="section-lede">Adapte o script à fase diagnosticada na Seção 1.</p>
+
+    <h4 class="sub-2">Script-base · Fases A, B e D</h4>
+    <blockquote class="script">[Nome], o nosso plano segue uma lógica simples: primeiro a gente arruma a casa — organiza sua rotina, a estrutura do escritório e coloca a IA pra trabalhar pra você. Só depois disso a gente entra com força na máquina de prospecção digital, porque não adianta atrair cliente se você não tem estrutura pra atender.</blockquote>
+
+    <h4 class="sub-2">Script adaptado · Fase C (Prospecção Urgente)</h4>
+    <blockquote class="script">[Nome], no seu caso a gente vai inverter um pouco a ordem. Como você precisa de caixa mais rápido, vamos focar primeiro no Calendário de Lucro Jurídico pra você identificar oportunidades de oferta agora. Em paralelo, a IA entra pra te liberar tempo. Quando o caixa estabilizar, a gente estrutura a máquina de aquisição completa.</blockquote>
+
+    <h4 class="sub-2">Deixe claro em qualquer fase</h4>
+    <ul>
+      <li><strong>Agora (próximos 60–90 dias):</strong> organização interna + IA + entendimento de sazonalidade.</li>
+      <li><strong>Depois:</strong> máquina de prospecção, funis e aquisição sistematizada.</li>
+      <li>A <strong>próxima sessão</strong> (geralmente com a Valquíria) aprofunda prospecção.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SEÇÃO 4 -->
+<section class="block" id="s4">
+  <div class="wrap">
+    <div class="section-tag">Seção 04</div>
+    <h2 class="section-title">Trilha <em>Inicial</em> de Estudos</h2>
+    <p class="section-lede">Trilha fixa para todos os mentorados: <strong>Inteligência Artificial e Múltiplas Tecnologias</strong>.</p>
+
+    <h4 class="sub-2">Como apresentar</h4>
+    <p>Peça para o mentorado <strong>abrir a trilha na call</strong>, junto com você. Explique:</p>
+    <blockquote class="script">Essa trilha é pra você tirar peso das tarefas repetitivas e criar uma operação de escritório que funciona com apoio de IA. É nessa base organizada que a gente vai encaixar depois a sua prospecção digital.</blockquote>
+
+    <h4 class="sub-2">Dois módulos prioritários dentro da trilha</h4>
+    <ol>
+      <li><strong>Acervo de GPTs Prontos para Uso</strong> — detalhado na Seção 05.</li>
+      <li><strong>Notebook LM</strong> — detalhado na Seção 06.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- SEÇÃO 5 -->
+<section class="block" id="s5">
+  <div class="wrap">
+    <div class="section-tag">Seção 05 · Módulo principal para Fases A, B e D</div>
+    <h2 class="section-title">Acervo de <em>GPTs</em> Prontos</h2>
+    <p class="section-lede">Esse é o módulo número 1 para a maioria dos mentorados. Fase C prioriza Calendário primeiro.</p>
+
+    <h3 class="sub">5.1 · Método de aplicação · 4 passos</h3>
+    <ol class="steps">
+      <li>
+        <h4>Listar todas as atividades diárias</h4>
+        <p>O mentorado monta uma lista (papel, planilha, Notion, Word) com tudo o que faz: atendimentos, e-mails, WhatsApp, peças, contratos, petições, pareceres, organização de documentos, prazos, comunicados, rotinas administrativas.</p>
+      </li>
+      <li>
+        <h4>Identificar o que é repetitivo</h4>
+        <p>Marcar tarefas que se repetem todos os dias ou várias vezes por semana, e tarefas com estrutura fixa que mudam só dados do cliente/caso.</p>
+        <p class="muted"><strong>Conceito-chave:</strong> tudo que é repetitivo é potencial de ser automatizado com IA.</p>
+      </li>
+      <li>
+        <h4>Mapear cada atividade para um GPT do acervo</h4>
+        <p>Para cada tarefa repetitiva, procurar no acervo um GPT que resolva por completo ou adiante 70–80% do trabalho. Onde não tiver algo idêntico, escolher o GPT mais próximo e adaptar.</p>
+      </li>
+      <li>
+        <h4>Substituir tarefas manuais pelos GPTs</h4>
+        <p>A meta é que cada atividade repetitiva tenha um "par" no acervo. Ao invés de começar do zero, sempre parte de um GPT e só ajusta o resultado.</p>
+      </li>
+    </ol>
+
+    <h3 class="sub">5.2 · Sua função como onboarder</h3>
+    <p>Na call, garanta que o mentorado:</p>
+    <ul>
+      <li>Entendeu a lógica da <strong>lista de atividades</strong>.</li>
+      <li>Entendeu o conceito: <strong>atividade repetitiva = atividade automatizável</strong>.</li>
+      <li>Se comprometeu a fazer a lista e voltar no módulo para mapear cada atividade.</li>
+    </ul>
+    <p class="muted"><strong>Combine um prazo</strong> (sugestão: 7 dias) para a primeira versão da lista estar pronta.</p>
+  </div>
+</section>
+
+<!-- SEÇÃO 6 -->
+<section class="block" id="s6">
+  <div class="wrap">
+    <div class="section-tag">Seção 06</div>
+    <h2 class="section-title">Notebook <em>LM</em></h2>
+    <p class="section-lede">Foco médio para a maioria. Foco máximo para Fase D (Escala).</p>
+
+    <h4 class="sub-2">Como apresentar</h4>
+    <blockquote class="script">[Nome], o Notebook LM é a ferramenta pra você organizar o conhecimento e os documentos do escritório. É como criar um cérebro auxiliar do seu escritório, que automatiza o que não ficou coberto só com os GPTs prontos.</blockquote>
+
+    <h4 class="sub-2">O que é</h4>
+    <p>Um ambiente onde o mentorado pode reunir documentos, centralizar informações e fazer perguntas em cima de conteúdos do próprio escritório.</p>
+
+    <h4 class="sub-2">Conexão com a lista de atividades</h4>
+    <blockquote class="script">Depois que você mapear suas atividades e usar os GPTs, o Notebook LM vai te ajudar a juntar tudo em estruturas mais inteligentes: dossiês de clientes, bases de modelos, rotinas de peças, checklists de atendimento.</blockquote>
+
+    <h4 class="sub-2">Diferença prática</h4>
+    <ul>
+      <li><strong>GPTs prontos:</strong> resolvem coisas táticas, pontuais.</li>
+      <li><strong>Notebook LM:</strong> organiza, dá continuidade, cria bancos internos.</li>
+    </ul>
+
+    <h4 class="sub-2">Princípio de aplicação</h4>
+    <p>Reforce que o mentorado não precisa dominar tudo de uma vez:</p>
+    <blockquote class="script">Assistir o módulo, aplicar uma coisinha, voltar, testar de novo. É construção gradual.</blockquote>
+  </div>
+</section>
+
+<!-- SEÇÃO 7 -->
+<section class="block" id="s7">
+  <div class="wrap">
+    <div class="section-tag">Seção 07</div>
+    <h2 class="section-title">Calendário de <em>Lucro</em> Jurídico</h2>
+    <p class="section-lede">Foco máximo para Fase C. Pontual para as outras fases (foco sazonal).</p>
+
+    <h4 class="sub-2">Como apresentar o conceito</h4>
+    <blockquote class="script">O Calendário de Lucro Jurídico é como um Waze do faturamento. Mostra rotas de dinheiro ao longo do ano, indica o que vender em cada época, e ajuda você a pensar campanhas, funis e conteúdos de forma estratégica.</blockquote>
+
+    <h3 class="sub">7.1 · Foco sazonal por mês do onboarding</h3>
+    <p>Regra simples: olhar para o <strong>trimestre atual + próximo</strong>.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Mês do onboarding</th><th>Foco no Calendário</th></tr></thead>
+        <tbody>
+          <tr><td>Janeiro / Fevereiro</td><td>Início de ano · reativação, planejamento, volta do recesso</td></tr>
+          <tr><td>Março / Abril</td><td>Q1 fechamento + IR/declarações</td></tr>
+          <tr><td>Maio / Junho</td><td>Meio de ano + datas comerciais</td></tr>
+          <tr><td>Julho / Agosto</td><td>Recesso forense + reaquecimento</td></tr>
+          <tr><td>Setembro / Outubro</td><td>Reta final + planejamento Black Friday</td></tr>
+          <tr><td>Novembro / Dezembro</td><td>Fim de ano + janeiro seguinte</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="sub">7.2 · Estudo prático para o mentorado</h3>
+    <p>Pedir que assista as partes relevantes <strong>com papel e caneta</strong>, anotando:</p>
+    <ul>
+      <li>Ideias de conteúdo para o trimestre atual + próximo.</li>
+      <li>Ideias de ofertas/serviços para esses meses.</li>
+      <li>Possíveis funis (ex: material gratuito → conversa no WhatsApp → proposta).</li>
+      <li>O que faz sentido para o nicho e tipo de cliente dele.</li>
+    </ul>
+
+    <h3 class="sub">7.3 · Conexão com a próxima sessão</h3>
+    <blockquote class="script">[Nome], esse estudo do Calendário, focado nos próximos meses, é pra você chegar na próxima sessão já com clareza de: que tipo de conteúdo faz sentido, o que vender em cada época, e que tipo de funil combina com seu jeito de trabalhar.</blockquote>
+    <blockquote class="script">Na próxima sessão, vocês vão aprofundar a prospecção em si — método mais adequado, encaixe na rotina, integração com a estrutura de IA que você está montando.</blockquote>
+  </div>
+</section>
+
+<!-- SEÇÃO 8 -->
+<section class="block" id="s8">
+  <div class="wrap">
+    <div class="section-tag">Seção 08 · 5 min</div>
+    <h2 class="section-title">Amarração <em>Final</em></h2>
+    <p class="section-lede">Feche a call resumindo o plano combinado e validando compromissos.</p>
+
+    <h3 class="sub">8.1 · Script de fechamento</h3>
+    <blockquote class="script">[Nome], então o plano combinado é:<br><br>
+    1. Acesso 100% ok à Comunidade e app — feito agora.<br>
+    2. Começar pela Trilha de Inteligência Artificial e Múltiplas Tecnologias.<br>
+    3. Focar primeiro no Acervo de GPTs prontos (listar atividades, mapear o repetitivo) e no Notebook LM (organizar o conhecimento).<br>
+    4. Em paralelo, estudar o Calendário de Lucro Jurídico, com foco nos próximos meses.<br>
+    5. Meta de curto prazo: operação mais organizada e automatizada nas próximas semanas.<br>
+    6. Próxima sessão: máquina de prospecção ativada, com a Valquíria.</blockquote>
+
+    <h3 class="sub">8.2 · Três compromissos a confirmar</h3>
+    <p>Sempre saia da call com três compromissos explícitos, com prazo:</p>
+    <ol>
+      <li>Entregar a lista de atividades diárias com tarefas repetitivas marcadas.</li>
+      <li>Começar a usar pelo menos 1 GPT na rotina.</li>
+      <li>Assistir os trechos do Calendário de Lucro Jurídico do trimestre relevante.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- SEÇÃO 9 -->
+<section class="block" id="s9">
+  <div class="wrap">
+    <div class="section-tag">Seção 09</div>
+    <h2 class="section-title">Checklist do <em>Onboarder</em></h2>
+    <p class="section-lede">Marque todos os itens antes de encerrar a call.</p>
+
+    <div class="checklist">
+      <h4>9.1 · Acesso</h4>
+      <ul>
+        <li>Login na Comunidade confirmado (via desktop, na call)</li>
+        <li>Mentorado conseguiu acessar painel inicial</li>
+        <li>App instalado (desktop ou mobile)</li>
+        <li>Primeiro login no app confirmado</li>
+        <li>Mentorado se sente seguro para repetir o login sozinho</li>
+      </ul>
+    </div>
+
+    <div class="checklist">
+      <h4>9.2 · Diagnóstico</h4>
+      <ul>
+        <li>Fase do mentorado identificada (A / B / C / D)</li>
+        <li>Dor primária mapeada</li>
+        <li>Nicho/especialização registrado</li>
+        <li>Urgência de caixa avaliada</li>
+        <li>Maturidade em IA avaliada</li>
+        <li>Maturidade em digital avaliada</li>
+      </ul>
+    </div>
+
+    <div class="checklist">
+      <h4>9.3 · Plano apresentado</h4>
+      <ul>
+        <li>Linha do tempo do plano explicada e validada</li>
+        <li>Trilha de IA e Múltiplas Tecnologias aberta na call</li>
+        <li>Módulo de Acervo de GPTs apresentado</li>
+        <li>Módulo de Notebook LM apresentado</li>
+        <li>Calendário de Lucro Jurídico apresentado, com foco sazonal definido</li>
+      </ul>
+    </div>
+
+    <div class="checklist">
+      <h4>9.4 · Compromissos</h4>
+      <ul>
+        <li>Prazo combinado para a lista de atividades diárias</li>
+        <li>Prazo combinado para uso do primeiro GPT</li>
+        <li>Prazo combinado para estudo do Calendário (trecho específico)</li>
+        <li>Mentorado verbalizou os compromissos com clareza</li>
+      </ul>
+    </div>
+
+    <div class="checklist">
+      <h4>9.5 · Encerramento</h4>
+      <ul>
+        <li>Próxima sessão (Valquíria ou outro) anunciada</li>
+        <li>Mentorado sabe como contatar em caso de dúvida</li>
+        <li>Sentimento geral do mentorado registrado</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SEÇÃO 10 -->
+<section class="block" id="s10">
+  <div class="wrap">
+    <div class="section-tag">Seção 10 · Imediatamente após a call</div>
+    <h2 class="section-title">Registro <em>Pós-Call</em></h2>
+    <p class="section-lede">Preencher enquanto a memória está fresca. Use o template no CRM, Notion ou planilha do time.</p>
+
+    <div class="registry">═══════════════════════════════════════════════════
+REGISTRO DE ONBOARDING — COMUNIDADE SIJ
+═══════════════════════════════════════════════════
+
+DADOS BÁSICOS
+- Nome do mentorado:
+- Data da sessão:
+- Onboarder responsável:
+- Duração da call:
+
+DIAGNÓSTICO
+- Fase identificada: [ A / B / C / D ]
+- Dor primária:
+- Nicho/área de atuação:
+- Urgência de caixa: [ Alta / Média / Baixa ]
+- Maturidade em IA: [ Nenhuma / Inicial / Intermediária / Avançada ]
+- Maturidade em digital: [ Nenhuma / Inicial / Intermediária / Avançada ]
+
+ACESSO
+- Login na Comunidade: [ OK / Pendente ]
+- App instalado: [ OK / Pendente ]
+- Observações de acesso:
+
+ESTUDO ENCAMINHADO
+- Trilha de IA iniciada: [ Sim / Não ]
+- Módulo Acervo de GPTs: [ Apresentado / Iniciado / Pendente ]
+- Módulo Notebook LM: [ Apresentado / Iniciado / Pendente ]
+- Calendário de Lucro Jurídico — foco sazonal: [ Qual período ]
+- Calendário iniciado: [ Sim / Não ]
+
+COMPROMISSOS COMBINADOS
+1. Lista de atividades diárias — prazo: ____ /____
+2. Primeiro GPT em uso — prazo: ____ /____
+3. Estudo do Calendário (trecho) — prazo: ____ /____
+
+OBSERVAÇÕES PARA A PRÓXIMA SESSÃO
+- Dúvidas sobre IA:
+- Travas percebidas em prospecção:
+- Nicho/serviço prioritário para campanhas:
+- Sinais de resistência ou risco de churn:
+- Pontos fortes do mentorado:
+
+SENTIMENTO GERAL
+[ Engajado / Animado / Inseguro / Resistente / Sobrecarregado ]
+
+PRÓXIMO TOUCHPOINT
+- Data:
+- Responsável:
+- Foco:
+
+═══════════════════════════════════════════════════</div>
+  </div>
+</section>
+
+<!-- APÊNDICE -->
+<section class="block">
+  <div class="wrap">
+    <div class="section-tag">Apêndice</div>
+    <h2 class="section-title">Mapa de <em>Decisão</em> Rápida</h2>
+    <p class="section-lede">Para consulta durante a call.</p>
+
+    <div class="decision-map">
+      <div class="decision-row">
+        <div class="decision-if">SE Fase A · Organizar a Casa</div>
+        <div class="decision-then">→ Acervo de GPTs (foco máximo) + Notebook LM (médio) + Calendário (pontual)</div>
+      </div>
+      <div class="decision-row">
+        <div class="decision-if">SE Fase B · Retomada</div>
+        <div class="decision-then">→ Acervo de GPTs (foco máximo) + Notebook LM (médio) + Calendário (pontual)</div>
+        <div class="decision-add">Adicional: comentar construção de autoridade digital em paralelo</div>
+      </div>
+      <div class="decision-row">
+        <div class="decision-if">SE Fase C · Prospecção Urgente</div>
+        <div class="decision-then">→ Calendário (foco máximo) + Acervo de GPTs (médio) + Notebook LM (baixo)</div>
+        <div class="decision-add">Adicional: encurtar horizonte de resultado para 30–60 dias</div>
+      </div>
+      <div class="decision-row">
+        <div class="decision-if">SE Fase D · Escala</div>
+        <div class="decision-then">→ Notebook LM (foco máximo) + Acervo de GPTs (médio) + Calendário (médio)</div>
+        <div class="decision-add">Adicional: pensar IA como infraestrutura, não como ferramenta isolada</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-mark">Protocolo de Onboarding · Comunidade Super Inteligência Jurídica</div>
+    <div class="foot-meta">Versão 1.0 · Documento Operacional Interno</div>
+  </div>
+</footer>
+
+</body>
+</html>
