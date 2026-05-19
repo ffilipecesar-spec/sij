@@ -409,6 +409,101 @@ tr:hover td{background:var(--bg-elev)}
   font-style:italic;
 }
 
+/* App categories */
+.app-category{
+  margin:32px 0;
+}
+.app-cat-header{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  margin-bottom:16px;
+}
+.app-cat-tag{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--gold);
+  white-space:nowrap;
+}
+.app-cat-line{
+  flex:1;
+  height:1px;
+  background:var(--gold-line);
+  opacity:0.4;
+}
+.app-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+}
+.app-card{
+  background:var(--bg);
+  padding:18px 20px;
+  transition:all 0.2s ease;
+}
+.app-card:hover{
+  background:var(--bg-elev);
+}
+.app-name{
+  font-family:var(--display);
+  font-size:17px;
+  font-weight:500;
+  color:var(--ink);
+  letter-spacing:-0.01em;
+  margin-bottom:4px;
+}
+.app-niche{
+  font-size:12px;
+  color:var(--ink-mute);
+  font-family:var(--mono);
+  letter-spacing:0.04em;
+}
+
+/* Highlight callout for Cloud SI */
+.feature-callout{
+  margin:32px 0;
+  padding:32px;
+  background:linear-gradient(135deg,var(--bg-elev) 0%,var(--bg-elev-2) 100%);
+  border:1px solid var(--gold-line);
+  border-radius:2px;
+  position:relative;
+  overflow:hidden;
+}
+.feature-callout::before{
+  content:'';
+  position:absolute;
+  top:0;
+  left:0;
+  width:3px;
+  height:100%;
+  background:var(--gold);
+}
+.feature-callout-tag{
+  font-family:var(--mono);
+  font-size:11px;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:12px;
+}
+.feature-callout-title{
+  font-family:var(--display);
+  font-size:28px;
+  font-weight:500;
+  color:var(--ink);
+  letter-spacing:-0.015em;
+  margin-bottom:12px;
+}
+.feature-callout-desc{
+  color:var(--ink-mute);
+  font-size:16px;
+  line-height:1.55;
+}
+
 /* Footer */
 footer.foot{
   padding:48px 0 80px;
@@ -461,10 +556,11 @@ footer.foot{
       <a href="#s4"><span class="index-num">04</span><span class="index-name">Trilha Inicial</span></a>
       <a href="#s5"><span class="index-num">05</span><span class="index-name">Acervo de GPTs</span></a>
       <a href="#s6"><span class="index-num">06</span><span class="index-name">Notebook LM</span></a>
-      <a href="#s7"><span class="index-num">07</span><span class="index-name">Calendário de Lucro</span></a>
-      <a href="#s8"><span class="index-num">08</span><span class="index-name">Amarração Final</span></a>
-      <a href="#s9"><span class="index-num">09</span><span class="index-name">Checklist do Onboarder</span></a>
-      <a href="#s10"><span class="index-num">10</span><span class="index-name">Registro Pós-Call</span></a>
+      <a href="#s7"><span class="index-num">07</span><span class="index-name">Cloud SI + Apps por Área</span></a>
+      <a href="#s8"><span class="index-num">08</span><span class="index-name">Calendário de Lucro</span></a>
+      <a href="#s9"><span class="index-num">09</span><span class="index-name">Amarração Final</span></a>
+      <a href="#s10"><span class="index-num">10</span><span class="index-name">Checklist do Onboarder</span></a>
+      <a href="#s11"><span class="index-num">11</span><span class="index-name">Registro Pós-Call</span></a>
     </div>
   </div>
 </nav>
@@ -676,14 +772,115 @@ footer.foot{
 <!-- SEÇÃO 7 -->
 <section class="block" id="s7">
   <div class="wrap">
-    <div class="section-tag">Seção 07</div>
+    <div class="section-tag">Seção 07 · Aceleradores operacionais</div>
+    <h2 class="section-title">Cloud Super Inteligente <em>+ Apps</em> por Área</h2>
+    <p class="section-lede">Depois do Acervo de GPTs e do Notebook LM, esses são os aceleradores que dão profundidade operacional e contexto vertical para a área específica do mentorado.</p>
+
+    <h3 class="sub">7.1 · Cloud Super Inteligente</h3>
+
+    <div class="feature-callout">
+      <div class="feature-callout-tag">Acelerador · Automações pesadas</div>
+      <div class="feature-callout-title">Cloud Super Inteligente</div>
+      <div class="feature-callout-desc">Ambiente operacional para o mentorado avançar com IA além das tarefas pontuais — automações encadeadas, fluxos complexos e processos com várias etapas que os GPTs prontos sozinhos não resolvem.</div>
+    </div>
+
+    <h4 class="sub-2">Como apresentar</h4>
+    <blockquote class="script">[Nome], depois que você dominar o Acervo de GPTs e o Notebook LM, o próximo passo é o Cloud Super Inteligente. É onde você vai conseguir montar automações pesadas, com vários passos encadeados, pra ter um contexto operacional muito mais profundo com IA. É a camada que faz a IA realmente trabalhar pra você em escala.</blockquote>
+
+    <h4 class="sub-2">Quando direcionar o mentorado para o Cloud SI</h4>
+    <ul>
+      <li>Quando ele já fez a lista de atividades (Seção 5) e tem clareza do que é repetitivo.</li>
+      <li>Quando ele já testou alguns GPTs do acervo e quer ir além de tarefas isoladas.</li>
+      <li>Quando a operação dele exige <strong>fluxos com múltiplas etapas</strong> (ex: captura de dados → análise → geração de peça → revisão).</li>
+      <li>Fases <strong>D (Escala)</strong> e <strong>A (Organizar a Casa)</strong> com volume alto: Cloud SI entra cedo. Fase C: depois que o caixa estabilizar.</li>
+    </ul>
+
+    <h3 class="sub">7.2 · Aplicativos da Super Inteligência por área</h3>
+    <p>Mostre ao mentorado <strong>apenas os aplicativos relevantes para o nicho dele</strong>, identificado na Matriz de Diagnóstico (Seção 1). Não apresente o catálogo inteiro — apresente o que se conecta com a realidade dele.</p>
+
+    <div class="callout-warn">
+      <strong>Como usar esta seção.</strong> Funciona como uma <strong>trilha rápida vertical</strong>: o mentorado já entra no app pronto da área dele, com IA aplicada ao contexto jurídico específico, sem precisar montar tudo do zero.
+    </div>
+
+    <div class="app-category">
+      <div class="app-cat-header">
+        <div class="app-cat-tag">Apps por área jurídica</div>
+        <div class="app-cat-line"></div>
+      </div>
+      <div class="app-grid">
+        <div class="app-card"><div class="app-name">Bancário 360</div><div class="app-niche">Direito Bancário</div></div>
+        <div class="app-card"><div class="app-name">Tributário 360</div><div class="app-niche">Direito Tributário</div></div>
+        <div class="app-card"><div class="app-name">Trabalhista 360</div><div class="app-niche">Direito do Trabalho</div></div>
+        <div class="app-card"><div class="app-name">Previdenciário 360</div><div class="app-niche">Direito Previdenciário</div></div>
+        <div class="app-card"><div class="app-name">Imobiliário 360</div><div class="app-niche">Direito Imobiliário</div></div>
+        <div class="app-card"><div class="app-name">Saúde 360</div><div class="app-niche">Direito da Saúde</div></div>
+      </div>
+    </div>
+
+    <div class="app-category">
+      <div class="app-cat-header">
+        <div class="app-cat-tag">Boxes · Soluções escaláveis</div>
+        <div class="app-cat-line"></div>
+      </div>
+      <div class="app-grid">
+        <div class="app-card"><div class="app-name">Box Consultoria Empresarial 360º</div><div class="app-niche">Consultoria PJ</div></div>
+        <div class="app-card"><div class="app-name">Box Teses Escaláveis</div><div class="app-niche">Teses jurídicas em escala</div></div>
+        <div class="app-card"><div class="app-name">Box Extrajudicial Escalável</div><div class="app-niche">Família · Herança · Casa Própria</div></div>
+      </div>
+    </div>
+
+    <div class="app-category">
+      <div class="app-cat-header">
+        <div class="app-cat-tag">Ferramentas comerciais e operacionais</div>
+        <div class="app-cat-line"></div>
+      </div>
+      <div class="app-grid">
+        <div class="app-card"><div class="app-name">SiteJUR</div><div class="app-niche">Sites para advogados</div></div>
+        <div class="app-card"><div class="app-name">Engenharia de Vendas 2026</div><div class="app-niche">Sistema comercial</div></div>
+        <div class="app-card"><div class="app-name">Calendário do Lucro Jurídico</div><div class="app-niche">Sazonalidade e ofertas</div></div>
+        <div class="app-card"><div class="app-name">Central Advogado 100K</div><div class="app-niche">Faturamento e gestão</div></div>
+        <div class="app-card"><div class="app-name">Cofre da Execução Inteligente</div><div class="app-niche">Execução de processos</div></div>
+      </div>
+    </div>
+
+    <h3 class="sub">7.3 · Como conectar app à área do mentorado</h3>
+    <p>Use o nicho identificado na Seção 1.1, pergunta 6 (Especialização). Exemplos práticos de direcionamento:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Nicho/área do mentorado</th><th>Apps a apresentar</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Trabalhista</strong></td><td>Trabalhista 360 · Cofre da Execução Inteligente</td></tr>
+          <tr><td><strong>Previdenciário</strong></td><td>Previdenciário 360 · Cofre da Execução Inteligente</td></tr>
+          <tr><td><strong>Tributário</strong></td><td>Tributário 360 · Box Consultoria Empresarial 360º</td></tr>
+          <tr><td><strong>Bancário</strong></td><td>Bancário 360 · Box Teses Escaláveis</td></tr>
+          <tr><td><strong>Imobiliário</strong></td><td>Imobiliário 360 · Box Extrajudicial Escalável (Casa Própria)</td></tr>
+          <tr><td><strong>Saúde</strong></td><td>Saúde 360 · Box Teses Escaláveis</td></tr>
+          <tr><td><strong>Família / Sucessões</strong></td><td>Box Extrajudicial Escalável (Família, Herança)</td></tr>
+          <tr><td><strong>Consultivo PJ</strong></td><td>Box Consultoria Empresarial 360º · Tributário 360</td></tr>
+          <tr><td><strong>Generalista / múltiplas áreas</strong></td><td>Box Teses Escaláveis + Central Advogado 100K (gestão)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="muted"><strong>Para qualquer fase e qualquer nicho:</strong> SiteJUR (presença digital), Engenharia de Vendas 2026 (sistema comercial) e Central Advogado 100K (faturamento e gestão) são úteis cruzando todas as áreas.</p>
+
+    <h3 class="sub">7.4 · Script de apresentação dos apps</h3>
+    <blockquote class="script">[Nome], como você atua em [área], a gente tem aqui na Super Inteligência um aplicativo específico pra sua área: o [Nome do App]. É uma trilha rápida pra você acelerar — em vez de montar tudo do zero, você já entra num ambiente com IA aplicada ao seu contexto jurídico. Recomendo você dar uma olhada ainda essa semana, mesmo que seja só uma navegada inicial pra entender o que tem dentro.</blockquote>
+  </div>
+</section>
+
+<!-- SEÇÃO 8 -->
+<section class="block" id="s8">
+  <div class="wrap">
+    <div class="section-tag">Seção 08</div>
     <h2 class="section-title">Calendário de <em>Lucro</em> Jurídico</h2>
     <p class="section-lede">Foco máximo para Fase C. Pontual para as outras fases (foco sazonal).</p>
 
     <h4 class="sub-2">Como apresentar o conceito</h4>
     <blockquote class="script">O Calendário de Lucro Jurídico é como um Waze do faturamento. Mostra rotas de dinheiro ao longo do ano, indica o que vender em cada época, e ajuda você a pensar campanhas, funis e conteúdos de forma estratégica.</blockquote>
 
-    <h3 class="sub">7.1 · Foco sazonal por mês do onboarding</h3>
+    <h3 class="sub">8.1 · Foco sazonal por mês do onboarding</h3>
     <p>Regra simples: olhar para o <strong>trimestre atual + próximo</strong>.</p>
     <div class="table-wrap">
       <table>
@@ -699,7 +896,7 @@ footer.foot{
       </table>
     </div>
 
-    <h3 class="sub">7.2 · Estudo prático para o mentorado</h3>
+    <h3 class="sub">8.2 · Estudo prático para o mentorado</h3>
     <p>Pedir que assista as partes relevantes <strong>com papel e caneta</strong>, anotando:</p>
     <ul>
       <li>Ideias de conteúdo para o trimestre atual + próximo.</li>
@@ -708,47 +905,50 @@ footer.foot{
       <li>O que faz sentido para o nicho e tipo de cliente dele.</li>
     </ul>
 
-    <h3 class="sub">7.3 · Conexão com a próxima sessão</h3>
+    <h3 class="sub">8.3 · Conexão com a próxima sessão</h3>
     <blockquote class="script">[Nome], esse estudo do Calendário, focado nos próximos meses, é pra você chegar na próxima sessão já com clareza de: que tipo de conteúdo faz sentido, o que vender em cada época, e que tipo de funil combina com seu jeito de trabalhar.</blockquote>
     <blockquote class="script">Na próxima sessão, vocês vão aprofundar a prospecção em si — método mais adequado, encaixe na rotina, integração com a estrutura de IA que você está montando.</blockquote>
-  </div>
-</section>
-
-<!-- SEÇÃO 8 -->
-<section class="block" id="s8">
-  <div class="wrap">
-    <div class="section-tag">Seção 08 · 5 min</div>
-    <h2 class="section-title">Amarração <em>Final</em></h2>
-    <p class="section-lede">Feche a call resumindo o plano combinado e validando compromissos.</p>
-
-    <h3 class="sub">8.1 · Script de fechamento</h3>
-    <blockquote class="script">[Nome], então o plano combinado é:<br><br>
-    1. Acesso 100% ok à Comunidade e app — feito agora.<br>
-    2. Começar pela Trilha de Inteligência Artificial e Múltiplas Tecnologias.<br>
-    3. Focar primeiro no Acervo de GPTs prontos (listar atividades, mapear o repetitivo) e no Notebook LM (organizar o conhecimento).<br>
-    4. Em paralelo, estudar o Calendário de Lucro Jurídico, com foco nos próximos meses.<br>
-    5. Meta de curto prazo: operação mais organizada e automatizada nas próximas semanas.<br>
-    6. Próxima sessão: máquina de prospecção ativada, com a Valquíria.</blockquote>
-
-    <h3 class="sub">8.2 · Três compromissos a confirmar</h3>
-    <p>Sempre saia da call com três compromissos explícitos, com prazo:</p>
-    <ol>
-      <li>Entregar a lista de atividades diárias com tarefas repetitivas marcadas.</li>
-      <li>Começar a usar pelo menos 1 GPT na rotina.</li>
-      <li>Assistir os trechos do Calendário de Lucro Jurídico do trimestre relevante.</li>
-    </ol>
   </div>
 </section>
 
 <!-- SEÇÃO 9 -->
 <section class="block" id="s9">
   <div class="wrap">
-    <div class="section-tag">Seção 09</div>
+    <div class="section-tag">Seção 09 · 5 min</div>
+    <h2 class="section-title">Amarração <em>Final</em></h2>
+    <p class="section-lede">Feche a call resumindo o plano combinado e validando compromissos.</p>
+
+    <h3 class="sub">9.1 · Script de fechamento</h3>
+    <blockquote class="script">[Nome], então o plano combinado é:<br><br>
+    1. Acesso 100% ok à Comunidade e app — feito agora.<br>
+    2. Começar pela Trilha de Inteligência Artificial e Múltiplas Tecnologias.<br>
+    3. Focar primeiro no Acervo de GPTs prontos (listar atividades, mapear o repetitivo) e no Notebook LM (organizar o conhecimento).<br>
+    4. Avançar para o Cloud Super Inteligente quando estiver pronto para automações mais pesadas.<br>
+    5. Em paralelo, navegar nos aplicativos da sua área ([App específico do nicho]) como trilha rápida vertical.<br>
+    6. Estudar o Calendário de Lucro Jurídico, com foco nos próximos meses.<br>
+    7. Meta de curto prazo: operação mais organizada e automatizada nas próximas semanas.<br>
+    8. Próxima sessão: máquina de prospecção ativada, com a Valquíria.</blockquote>
+
+    <h3 class="sub">9.2 · Compromissos a confirmar</h3>
+    <p>Sempre saia da call com <strong>quatro compromissos explícitos</strong>, com prazo:</p>
+    <ol>
+      <li>Entregar a lista de atividades diárias com tarefas repetitivas marcadas.</li>
+      <li>Começar a usar pelo menos 1 GPT na rotina.</li>
+      <li>Dar uma navegada inicial no aplicativo específico da sua área.</li>
+      <li>Assistir os trechos do Calendário de Lucro Jurídico do trimestre relevante.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- SEÇÃO 10 -->
+<section class="block" id="s10">
+  <div class="wrap">
+    <div class="section-tag">Seção 10</div>
     <h2 class="section-title">Checklist do <em>Onboarder</em></h2>
     <p class="section-lede">Marque todos os itens antes de encerrar a call.</p>
 
     <div class="checklist">
-      <h4>9.1 · Acesso</h4>
+      <h4>10.1 · Acesso</h4>
       <ul>
         <li>Login na Comunidade confirmado (via desktop, na call)</li>
         <li>Mentorado conseguiu acessar painel inicial</li>
@@ -759,7 +959,7 @@ footer.foot{
     </div>
 
     <div class="checklist">
-      <h4>9.2 · Diagnóstico</h4>
+      <h4>10.2 · Diagnóstico</h4>
       <ul>
         <li>Fase do mentorado identificada (A / B / C / D)</li>
         <li>Dor primária mapeada</li>
@@ -771,28 +971,31 @@ footer.foot{
     </div>
 
     <div class="checklist">
-      <h4>9.3 · Plano apresentado</h4>
+      <h4>10.3 · Plano apresentado</h4>
       <ul>
         <li>Linha do tempo do plano explicada e validada</li>
         <li>Trilha de IA e Múltiplas Tecnologias aberta na call</li>
         <li>Módulo de Acervo de GPTs apresentado</li>
         <li>Módulo de Notebook LM apresentado</li>
+        <li>Cloud Super Inteligente apresentado (posicionado como próximo passo)</li>
+        <li>Aplicativo(s) específico(s) da área do mentorado apresentado(s)</li>
         <li>Calendário de Lucro Jurídico apresentado, com foco sazonal definido</li>
       </ul>
     </div>
 
     <div class="checklist">
-      <h4>9.4 · Compromissos</h4>
+      <h4>10.4 · Compromissos</h4>
       <ul>
         <li>Prazo combinado para a lista de atividades diárias</li>
         <li>Prazo combinado para uso do primeiro GPT</li>
+        <li>Prazo combinado para navegar no app da área</li>
         <li>Prazo combinado para estudo do Calendário (trecho específico)</li>
         <li>Mentorado verbalizou os compromissos com clareza</li>
       </ul>
     </div>
 
     <div class="checklist">
-      <h4>9.5 · Encerramento</h4>
+      <h4>10.5 · Encerramento</h4>
       <ul>
         <li>Próxima sessão (Valquíria ou outro) anunciada</li>
         <li>Mentorado sabe como contatar em caso de dúvida</li>
@@ -802,10 +1005,10 @@ footer.foot{
   </div>
 </section>
 
-<!-- SEÇÃO 10 -->
-<section class="block" id="s10">
+<!-- SEÇÃO 11 -->
+<section class="block" id="s11">
   <div class="wrap">
-    <div class="section-tag">Seção 10 · Imediatamente após a call</div>
+    <div class="section-tag">Seção 11 · Imediatamente após a call</div>
     <h2 class="section-title">Registro <em>Pós-Call</em></h2>
     <p class="section-lede">Preencher enquanto a memória está fresca. Use o template no CRM, Notion ou planilha do time.</p>
 
@@ -836,13 +1039,16 @@ ESTUDO ENCAMINHADO
 - Trilha de IA iniciada: [ Sim / Não ]
 - Módulo Acervo de GPTs: [ Apresentado / Iniciado / Pendente ]
 - Módulo Notebook LM: [ Apresentado / Iniciado / Pendente ]
+- Cloud Super Inteligente: [ Apresentado / Iniciado / Pendente ]
+- App(s) da área apresentado(s): [ Quais ]
 - Calendário de Lucro Jurídico — foco sazonal: [ Qual período ]
 - Calendário iniciado: [ Sim / Não ]
 
 COMPROMISSOS COMBINADOS
 1. Lista de atividades diárias — prazo: ____ /____
 2. Primeiro GPT em uso — prazo: ____ /____
-3. Estudo do Calendário (trecho) — prazo: ____ /____
+3. Navegar no app da área — prazo: ____ /____
+4. Estudo do Calendário (trecho) — prazo: ____ /____
 
 OBSERVAÇÕES PARA A PRÓXIMA SESSÃO
 - Dúvidas sobre IA:
